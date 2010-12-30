@@ -1,0 +1,8 @@
+<?
+
+define('OAUTH_CONSUMER_KEY', '');
+define('OAUTH_CONSUMER_SECRET', '');
+define('OAUTH_ACCESS_TOKEN', '');
+define('OAUTH_ACCESS_SECRET', '');
+
+?>
