@@ -3,7 +3,7 @@
  * Globals and utilities for OAuth Examaples package
  */
 
-require_once('./oauth-conf.php');
+require_once('oauth-conf.php');
 
 define('DBFILE', '/var/db/safeword/safewords.sqlite');
 

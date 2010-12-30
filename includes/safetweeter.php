@@ -1,7 +1,7 @@
 <?
 
-require_once('./globals.php');
-require_once('./oauth_helper.php');
+require_once('globals.php');
+require_once('oauth_helper.php');
 
 define('DEBUG', false);
 
