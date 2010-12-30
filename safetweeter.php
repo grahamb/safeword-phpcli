@@ -179,14 +179,17 @@ function get_all_words() {
 	return $words;
 }
 
-function get_current_word() {
+function get_current_word($return_all=false) {
 	$dbh = get_dbh();
-    $query = $dbh->prepare("SELECT word FROM words WHERE wordoftheday=1");
-    $query->execute();
-	while ($row = $query->fetch()) {
-		$word[] = $row['word'];
+	$query = $dbh->prepare("SELECT * FROM words WHERE wordoftheday=1");
+	$query->execute();
+	$word = array();
+	while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+		foreach ($row as $k=>$v) {
+		    $word[$k] = $v;
+		}
 	}
-	return $word[0];
+	return $return_all ? $word : $word['word'];
 }
 
 function word_exists($word) {
