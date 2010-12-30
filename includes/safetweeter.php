@@ -1,7 +1,8 @@
 <?
 
-require 'globals.php';
-require 'oauth_helper.php';
+require_once('./globals.php');
+require_once('./oauth_helper.php');
+
 define('DEBUG', false);
 
 function get_dbh() {
