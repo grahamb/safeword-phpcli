@@ -323,4 +323,27 @@ function get_word_count_for_user($user) {
 	$result = $query->fetch();
 	return $result[0];
 }
+
+function pick_new_word() {
+	$today = time();
+	$lastweek = strtotime('7 days ago');
+	$dbh = get_dbh();
+	
+	// reset current word
+	$query = $dbh->prepare("UPDATE words SET wordoftheday = NULL");
+	$query->execute();
+	
+	// pick new word
+	$query = $dbh->prepare("SELECT id FROM words WHERE lastused <= $lastweek");
+	$query->execute();
+	while($row = $query->fetch()) {
+		$possibleWords[] = $row['id'];
+	}
+	$wordIndex = array_rand($possibleWords)+1;
+	$word_id = $possibleWords[$wordIndex];
+	
+	// mark word as current
+	$query = $dbh->prepare("UPDATE words SET lastused = $today, wordoftheday=1, usagecount=usagecount+1 WHERE id=$word_id");
+	$query->execute();	
+}
 ?>
