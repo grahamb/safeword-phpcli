@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?
 
 require_once('safetweeter.php');
