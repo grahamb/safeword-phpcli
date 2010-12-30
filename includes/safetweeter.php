@@ -190,6 +190,9 @@ function get_current_word($return_all=false) {
 		    $word[$k] = $v;
 		}
 	}
+	if (!count($word)) {
+		word['word'] = "NO CURRENT WORD";
+	}
 	return $return_all ? $word : $word['word'];
 }
 
