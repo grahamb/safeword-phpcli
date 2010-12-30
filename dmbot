@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-require 'safetweeter.php';
+require 'includes/safetweeter.php';
 
 $direct_messages = get_direct_messages();
 foreach ($direct_messages as $message) {

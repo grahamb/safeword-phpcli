@@ -1,5 +1,5 @@
 #!/usr/bin/php
 <?
-require_once('safetweeter.php');
+require_once('includes/safetweeter.php');
 pick_new_word();
 ?>
