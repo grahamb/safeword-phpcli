@@ -3,7 +3,9 @@
 require_once('globals.php');
 require_once('oauth_helper.php');
 
-define('DEBUG', false);
+if (!constant('DEBUG')) {
+	define('DEBUG', false);
+}
 
 function get_dbh() {
     return new PDO('sqlite:' . DBFILE);
