@@ -215,17 +215,11 @@ function tweet_error($options) {
     if (array_key_exists('word', $options)) {
         $error_str = str_replace("%WORD%", $options['word'], $error_str);
     }
-
-    if (DEBUG) {
-        echo $options['screen_name'] . " --> $error_str\n";
-    } else {
-        send_message('dm', array(
-            'text' => $error_str,
-            'user_id' => $options['user_id'],
-            'screen_name' => $options['screen_name']
-        ));
-    }
-    
+	send_message('dm', array(
+	    'text' => $error_str,
+	    'user_id' => $options['user_id'],
+	    'screen_name' => $options['screen_name']
+	));
 }
 
 function exec_command($command, $text, $user, $user_id) {
@@ -241,17 +235,13 @@ function exec_command($command, $text, $user, $user_id) {
                 ));
             } else {
                 if (add_word($text, $user)) {
-                    if (DEBUG) {
-                        echo "TWEET --> \"$text\" has been added as a new safeword by @$user.";
-                    } else {
-                        send_message('public', array(
-                            'status' => "\"$text\" has been added as a new safeword by @$user."
-                        ));
-                        send_message('dm', array(
-                            'text' => "\"$text\" has been added as a new safeword. Thanks!",
-                            'screen_name' => $user
-                        ));
-                    }
+					send_message('public', array(
+					    'status' => "\"$text\" has been added as a new safeword by @$user."
+					));
+                    send_message('dm', array(
+                        'text' => "\"$text\" has been added as a new safeword. Thanks!",
+                        'screen_name' => $user
+                    ));
                 }
             }
             break;
@@ -273,17 +263,13 @@ function exec_command($command, $text, $user, $user_id) {
                 ));
 			} else {
                 if (delete_word($text, $user)) {
-                    if (DEBUG) {
-                        echo "TWEET --> \"$text\" has been deleted from the safeword list by @$user.";
-                    } else {
-                        send_message('public', array(
-                            'status' => "\"$text\" has been deleted from the safeword list by @$user."
-                        ));
-                        send_message('dm', array(
-                            'text' => "\"$text\" has been deleted from the safeword list.",
-                            'screen_name' => $user
-                        ));
-                    }
+	                send_message('public', array(
+	                    'status' => "\"$text\" has been deleted from the safeword list by @$user."
+	                ));
+	                send_message('dm', array(
+	                    'text' => "\"$text\" has been deleted from the safeword list.",
+	                    'screen_name' => $user
+	                ));
                 }
             }
             break;  
