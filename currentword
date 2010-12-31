@@ -1,0 +1,5 @@
+#!/usr/bin/php
+<?
+require_once('includes/safetweeter.php');
+echo get_current_word();
+?>
