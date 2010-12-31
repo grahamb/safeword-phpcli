@@ -2,7 +2,7 @@
 /**
  * Globals and utilities for OAuth Examaples package
  */
-
+date_default_timezone_set('America/Vancouver');
 require_once('oauth-conf.php');
 
 define('DBFILE', '/var/db/safeword/safewords.sqlite');
