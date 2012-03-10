@@ -5,8 +5,8 @@
 date_default_timezone_set('America/Vancouver');
 require_once('oauth-conf.php');
 
+define('DEBUG', false);
 define('DBFILE', '/var/db/safeword/safewords.sqlite');
-
 define('TWEET_LAT', '49.279040');
 define('TWEET_LONG', '-122.914679');
 define('WORD_LENGTH_LIMIT', 50);
