@@ -141,7 +141,7 @@ function process_direct_message($message) {
 	$text = $message->text;
 	$user = $message->sender->screen_name;
 	$user_id = $message->sender->id_str;
-	$message_id = $message->id;
+	$message_id = $message->id_str;
 	
 	// get the command
 	$textarr = split(' ', $text);
